@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.sun.org.apache.xpath.internal.operations.Quo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -12,10 +13,9 @@ public class DemoApplication {
 
     public static void main(String args[]) {
         RestTemplate restTemplate = new RestTemplate();
-        Quote quote = restTemplate.getForObject("http://gturnquist-quoters.cfapps.io/api/random", Quote.class);
-        log.info(quote.toString());
-        Insurance insurance = restTemplate.getForObject("https://hack.kunderlabs.com/exam/insurance/api/insurance", Insurance.class);
-        log.info(insurance.getName());
+        Quote resp = restTemplate.getForObject("https://hack.kunderlabs.com/exam/insurance/api/insurance", Quote.class);
+        log.info(resp.insuranceQty()+"");
+
     }
 
 }

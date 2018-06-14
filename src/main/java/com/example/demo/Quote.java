@@ -1,37 +1,27 @@
 package com.example.demo;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Quote {
+    private Insurance[] insurance;
+    public Quote(){}
 
-    private String type;
-    private Value value;
-
-    public Quote() {
+    public Insurance getInsurance(int i) {
+        return insurance[i];
     }
 
-    public String getType() {
-        return type;
+    public void setInsurance(Insurance[] insurance) {
+        this.insurance = insurance;
     }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Value getValue() {
-        return value;
-    }
-
-    public void setValue(Value value) {
-        this.value = value;
+    public int insuranceQty(){
+        return insurance.length;
     }
 
     @Override
     public String toString() {
         return "Quote{" +
-                "type='" + type + '\'' +
-                ", value=" + value +
+                "insurance=" + insurance +
                 '}';
     }
 }
